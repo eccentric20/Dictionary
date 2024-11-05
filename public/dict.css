@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #bae8e8 /* Light purple background */
+}
+
+#screen {
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Search bar styling */
+#search {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#search input[type="text"] {
+    margin-top: 60px;
+    width: 400px;
+    appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #bae8e8;
+	/* background: rgba(#bae8e8, .2); */
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+
+	color: black;
+}
+
+#search button {
+    padding: 10px 20px;
+    margin-left: 20px;
+    width: 120px;
+    height: 45px;
+    background-color: #bae8e8;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    vertical-align: bottom;
+}
+
+
+#search button:hover {
+    background-color: #9ed9da;
+}
+
+#word:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#audio{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Word display styling */
+#audio h2 {
+    margin-left: 20px;
+    margin-top: 60px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #3c2f58;
+    margin-bottom: 10px;
+}
+
+#audio button {
+    margin-top: 60px;
+    margin-right: 25px;
+    background: none;
+    border: none;
+    color: #bae8e8;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+#speech{
+    margin-top: 0;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Additional details styling */
+#speech h3 {
+
+    color: lightgray;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+#phon{
+    padding-left: 10px;
+}
+
+#ex{
+    margin-left: 20px;
+}
+
+#ex p{
+    font-size: 15px;
+    color: #666;
+    
+}
+
+#error h2 {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}

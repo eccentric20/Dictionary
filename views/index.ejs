@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="dict.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="screen">
+        <div id="search">
+            <form action="/search" method="post" onsubmit="validateForm(event)">
+                <input type="text" id="word" name="word">
+                <button type="submit" id="but">Search</button>
+            </form>
+        </div>
+        <% if(locals.word){ %>
+            <div id="audio">
+                <h2><%= word %></h2>
+                
+                
+                <button onclick="playAudio()">
+                    <i class="fas fa-volume-up" style="cursor: pointer;"></i>
+                
+                </button>
+                <audio id="proAudio" src=<%- pronunciation %>></audio>
+            </div>
+
+            <div id="speech">
+                <h3><%- partOfSpeech %></h3>
+                <h3 id="phon"><%- phonetics %></h3>
+            </div>
+            <div id="ex">
+                <p><%- definition %></p>
+                <p><%- example %></p>
+            </div>
+        <% } %>
+        <% if(locals.error){%>
+            <div id="error">
+                <h2>Could not find the word</h2>
+            </div>
+        <% } %>
+
+
+    </div>
+    <!-- <script>
+        function playAudio(){
+            document.getElementById('proAudio').play();
+        }
+
+        function saveWord(){
+            // const formAction = document.querySelector('form').getAttribute('action');
+            // if(formAction === '/search'){
+                
+            // }
+            const wordInput = document.getElementById('word').value;
+            sessionStorage.setItem('savedWord', wordInput);
+
+        }
+
+        window.onload = function(){
+            // if(window.location.pathname === '/'){
+            //     sessionStorage.removeItem('savedWord');
+            // }
+            
+            const savedWord = sessionStorage.getItem('savedWord');
+            if(savedWord){
+                document.getElementById('word').value = savedWord;
+            }
+        }
+
+        window.addEventListener('popstate', function() {
+            const savedWord = sessionStorage.getItem('savedWord');
+            if(savedWord){
+                document.getElementById('word').value = savedWord;
+            }   
+        })
+    </script> -->
+    <script>
+        function playAudio() {
+            document.getElementById('proAudio').play();
+        }
+
+        function validateForm(event){
+            const wordInput = document.getElementById('word').value.trim();
+            if(wordInput === ''){
+                alert("Please enter a word to search.");
+                event.preventDefault();
+            }
+
+        }
+        
+        window.onload = function() {
+            document.getElementById('word').value = '';
+        }
+
+
+    </script>
+    
+</body>
+</html>
